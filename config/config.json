@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "vlusapxc",
+    "password": "QVpwZEnFkPWM49hRcfkNIVjS4JY4LJa4",
+    "database": "vlusapxc",
+    "host": "fanny.db.elephantsql.com",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "vlusapxc",
+    "password": "QVpwZEnFkPWM49hRcfkNIVjS4JY4LJa4",
+    "database": "vlusapxc",
+    "host": "fanny.db.elephantsql.com",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "vlusapxc",
+    "password": "QVpwZEnFkPWM49hRcfkNIVjS4JY4LJa4",
+    "database": "vlusapxc",
+    "host": "fanny.db.elephantsql.com",
+    "dialect": "postgres"
+  }
+}

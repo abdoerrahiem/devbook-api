@@ -1,0 +1,177 @@
+### Home route
+GET http://localhost:5000
+
+# npm install --save-dev sequelize-cli
+# npx sequelize-cli init
+# npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string
+# npx sequelize-cli db:migrate
+# npx sequelize-cli db:migrate:undo
+# DROP TABLE "public"."Comments","public"."Educations","public"."Experiences","public"."Likes","public"."Posts","public"."Profiles","public"."SequelizeMeta","public"."Users"
+
+
+// Users
+### Register user
+POST http://localhost:5000/users/register
+Content-Type: application/json
+
+{
+    "name": "Abdur Rahim",
+    "email": "abdoerrahiem@gmail.com",
+    "password": "abdoerrahiem"
+}
+
+### Login user
+POST http://localhost:5000/users/login
+Content-Type: application/json
+
+{
+    "email": "abdoerrahiem@gmail.com",
+    "password": "abdoerrahiem"
+}
+
+### Get current user
+GET http://localhost:5000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxfSwiaWF0IjoxNjM0ODMxODc3LCJleHAiOjE2MzQ4MzkwNzd9.lCvPL33cVvIwXCSjrEPpz4UMVEKfG6bWCe__ubOlqp8
+
+
+// Post
+### Create post
+POST http://localhost:5000/posts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo0fSwiaWF0IjoxNjM0Nzk1MDM0LCJleHAiOjE2MzQ4MDIyMzR9.PZYyOHFygA4fmUNQv5CZNGPWozOHoSXl5Anbl3ZTd2w
+
+{
+    "text": "Good morning!"
+}
+
+### Get posts
+GET http://localhost:5000/posts
+
+### Get post
+GET http://localhost:5000/posts/6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo0fSwiaWF0IjoxNjM0Nzk1MDM0LCJleHAiOjE2MzQ4MDIyMzR9.PZYyOHFygA4fmUNQv5CZNGPWozOHoSXl5Anbl3ZTd2w
+
+### Delete post
+DELETE http://localhost:5000/posts/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo0fSwiaWF0IjoxNjM0Nzk2Mjc0LCJleHAiOjE2MzQ4MDM0NzR9.SCzVPMCz7Dbha-N-qe64K_nEtEBRhhqLQAwIH2lhtdA
+
+### Like or unlike post
+PUT http://localhost:5000/posts/likes/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo1fSwiaWF0IjoxNjM0Nzk3MTE3LCJleHAiOjE2MzQ4MDQzMTd9.ZdfMBNrNyC_kJZxyJiTsze_fqh2gIZoiYdHCHoVnyHM
+
+### Get likes from post
+GET http://localhost:5000/posts/likes/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo1fSwiaWF0IjoxNjM0Nzk3MTE3LCJleHAiOjE2MzQ4MDQzMTd9.ZdfMBNrNyC_kJZxyJiTsze_fqh2gIZoiYdHCHoVnyHM
+
+### Add comment to post
+POST http://localhost:5000/posts/comments/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo1fSwiaWF0IjoxNjM0Nzk3MTE3LCJleHAiOjE2MzQ4MDQzMTd9.ZdfMBNrNyC_kJZxyJiTsze_fqh2gIZoiYdHCHoVnyHM
+
+{
+    "text": "Great post bro!!!!!!!!!"
+}
+
+### Get comments from post
+GET http://localhost:5000/posts/comments/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo1fSwiaWF0IjoxNjM0Nzk3MTE3LCJleHAiOjE2MzQ4MDQzMTd9.ZdfMBNrNyC_kJZxyJiTsze_fqh2gIZoiYdHCHoVnyHM
+
+### Delete comment from post
+DELETE http://localhost:5000/posts/comments/2/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo1fSwiaWF0IjoxNjM0ODAxMDc0LCJleHAiOjE2MzQ4MDgyNzR9.Mharoka99-a65IYwxlb4c3Vp6HxhsYSE71fK10bCKAw
+
+
+// Profile
+### Get current user profile
+GET http://localhost:5000/profiles/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyfSwiaWF0IjoxNjM0ODQxNjYwLCJleHAiOjE2MzQ4NDg4NjB9.vQvcpHJP81p_3FU29otASP1FveMaz-EMJdGu5ODYt0k
+
+### Create profile
+POST http://localhost:5000/profiles
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyfSwiaWF0IjoxNjM0ODM2Njc0LCJleHAiOjE2MzQ4NDM4NzR9.dBAkGJTOSiRZZydDkaaLzv7S-g041TIHyKm4Un1YiPk
+
+{
+    "company": "Hmmiyelah Tech",
+    "website": "https://abdoerrahiem.vercel.app",
+    "location": "Mempawah, Indonesia",
+    "status": "Fullstack Developer",
+    "skills": ["Reactjs", "React Native", "NodeJs", "MySQL", "MongoDB"],
+    "bio": "I am a fullstack developer",
+    "githubusername": "abdoerrahiem",
+    "youtube": "https://youtube.com/abdoerrahiem",
+    "twitter": "https://twitter.com/abdoerrahiem",
+    "facebook": "https://facebook.com/abdoerrahiem",
+    "linkedin": "https://linkedin.com/abdoerrahiem",
+    "instagram": "https://instagram.com/abdoerrahiem"
+}
+
+### Update profile
+PUT http://localhost:5000/profiles
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozfSwiaWF0IjoxNjM0ODA0MzgwLCJleHAiOjE2MzQ4MTE1ODB9.H1KKPhb2om_4-cvTXxtNOf84t01FNKst9Wzp4nssklY
+
+{
+    "company": "Hmmiyelah",
+    "website": "https://abdoerrahiem.vercel.app",
+    "location": "Mempawah, Indonesia",
+    "status": "Fullstack Developer",
+    "skills": ["Reactjs", "React Native", "NodeJs", "MySQL", "MongoDB"],
+    "bio": "I am a fullstack developer",
+    "githubusername": "abdoerrahiem",
+    "youtube": "https://youtube.com/abdoerrahiem",
+    "twitter": "https://twitter.com/abdoerrahiem",
+    "facebook": "https://facebook.com/abdoerrahiem",
+    "linkedin": "https://linkedin.com/abdoerrahiem",
+    "instagram": "https://instagram.com/abdoerrahiem"
+}
+
+### Get profiles
+GET http://localhost:5000/profiles
+
+### Get profile by user id
+GET http://localhost:5000/profiles/1
+
+### Delete profile
+DELETE http://localhost:5000/profiles
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxfSwiaWF0IjoxNjM0ODMzNjczLCJleHAiOjE2MzQ4NDA4NzN9.fxbyyIx45l_UFFj12xczujRBlgaqnXa7Bvsbvb0c8Yw
+
+### Add experience to profile
+POST http://localhost:5000/profiles/experiences
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyfSwiaWF0IjoxNjM0ODM3Mzk4LCJleHAiOjE2MzQ4NDQ1OTh9.2fiO4_EVy_VezS4cbsgadDJFWD9fx4eS636FCFn-yeo
+
+{
+    "title": "Mobile Developer",
+    "company": "Hmmiyelah Tech",
+    "location": "Mempawah, Indonesia",
+    "from": "1-1-2020",
+    "current": true,
+    "description": "It's a lovely working there"
+}
+
+### Delete experience from profile
+DELETE http://localhost:5000/profiles/experiences/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyfSwiaWF0IjoxNjM0ODM3Mzk4LCJleHAiOjE2MzQ4NDQ1OTh9.2fiO4_EVy_VezS4cbsgadDJFWD9fx4eS636FCFn-yeo
+
+### Add education to profile
+POST http://localhost:5000/profiles/educations
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyfSwiaWF0IjoxNjM0ODM3Mzk4LCJleHAiOjE2MzQ4NDQ1OTh9.2fiO4_EVy_VezS4cbsgadDJFWD9fx4eS636FCFn-yeo
+
+{
+    "school": "MAN Mempawah II",
+    "degree": "S1 Hukum",
+    "fieldofstudy": "Hukum Keluarga Islam",
+    "from": "1-1-2017",
+    "to": "1-1-2022",
+    "current": false,
+    "description": "It's a lovely campus"
+}
+
+### Delete education from profile
+DELETE http://localhost:5000/profiles/educations/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyfSwiaWF0IjoxNjM0ODM3Mzk4LCJleHAiOjE2MzQ4NDQ1OTh9.2fiO4_EVy_VezS4cbsgadDJFWD9fx4eS636FCFn-yeo
+
+### Get user resos from github
+GET http://localhost:5000/profiles/github/abdoerrahiem
